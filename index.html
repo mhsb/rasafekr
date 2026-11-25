@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>استودیو بازی‌سازی رسافکر</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6ec;--card:#ffffff;--ink:#212020;--mut:#6a665e;--line:#e8dfc9;--gold:#d9a526;--tealb:#57c2ba;--hd:#ffffff;--hdink:#212020;--dk:#212020;--dkink:#f5efe0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1918;--card:#262524;--ink:#f3eee2;--mut:#a9a59b;--line:#3a3836;--hd:#212020;--hdink:#f5efe0;color-scheme:dark}
+:root:not([data-theme="light"]) .lg-l{display:none}:root:not([data-theme="light"]) .lg-d{display:block}}
+:root[data-theme="dark"]{--bg:#1a1918;--card:#262524;--ink:#f3eee2;--mut:#a9a59b;--line:#3a3836;--hd:#212020;--hdink:#f5efe0}
+:root[data-theme="dark"] .lg-l{display:none}:root[data-theme="dark"] .lg-d{display:block}
+.lg-d{display:none}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+a{color:inherit;text-decoration:none}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--hd);color:var(--hdink);border-bottom:1.5px solid var(--line)}
+header .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;padding-top:6px;padding-bottom:6px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;line-height:1.4}
+.brand img{height:42px;width:auto}
+nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;order:3;width:100%}
+nav a{padding:4px 12px;border-radius:999px;font-size:14px;white-space:nowrap}
+nav a:hover,nav a:focus-visible,#tg:hover{background:color-mix(in srgb,var(--gold) 25%,transparent);outline:none}
+#tg{background:transparent;border:1.5px solid var(--line);color:var(--hdink);border-radius:999px;padding:3px 12px;font:600 13px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+@media(min-width:760px){nav{order:0;width:auto}header .w{flex-wrap:nowrap}}
+.hero{background:var(--hd);color:var(--hdink);padding:60px 0 70px;text-align:center}
+.hero h1{font-size:clamp(28px,6.5vw,50px);margin:0 0 14px;line-height:1.7;font-weight:800}
+.hero h1 b{color:var(--gold)}
+.hero p{max-width:560px;margin:0 auto 26px;color:var(--mut);font-size:17px}
+.btn{display:inline-block;padding:12px 26px;border-radius:14px;font-weight:600;font-size:16px;background:var(--gold);color:#212020;margin:4px}
+.btn.o{background:transparent;border:1.5px solid var(--tealb);color:var(--tealb)}
+.btn:focus-visible{outline:3px solid var(--tealb);outline-offset:2px}
+section{padding:54px 0}
+h2{font-size:28px;margin:0 0 6px;font-weight:800}
+h2::after{content:"";display:block;width:54px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--tealb));margin-top:6px}
+.sub{color:var(--mut);margin:10px 0 24px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{display:block;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px}
+.card h3{margin:8px 0 4px;font-size:19px}.card p{margin:0;color:var(--mut);font-size:15px}
+a.card:hover,a.card:focus-visible{border-color:var(--gold);outline:none}
+.tag{display:inline-block;font-size:12px;padding:1px 12px;border-radius:99px;background:var(--tealb);color:#212020;font-weight:600}
+.alt{background:color-mix(in srgb,var(--card) 70%,var(--bg))}
+.prod{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:center}
+.box{aspect-ratio:4/3;border-radius:18px;background:linear-gradient(135deg,var(--gold),var(--tealb));display:grid;place-items:center;font-size:40px;font-weight:800;color:#212020;text-align:center;padding:10px;line-height:1.4}
+.games{background:var(--dk);color:var(--dkink)}
+.games .sub{color:#c9c2b0}
+.steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:20px 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;background:#2c2b2a;border:1.5px solid #403e3b;border-radius:16px;padding:16px}
+.steps li::before{content:counter(s,persian);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#212020;font-weight:800;margin-inline-end:8px}
+form{display:grid;gap:10px;max-width:420px;margin-top:10px}
+input{font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid #4a4845;background:#1b1a19;color:var(--dkink)}
+input:focus-visible{outline:3px solid var(--tealb);outline-offset:1px}
+form button{font:600 16px Vazirmatn,Tahoma,sans-serif;padding:12px;border:0;border-radius:12px;background:var(--gold);color:#212020;cursor:pointer}
+.note{font-size:13px;color:#a9a39a}
+.admin{margin-top:20px;font-size:17px}.admin b{direction:ltr;unicode-bidi:embed;color:var(--gold)}
+footer{background:var(--dk);color:#b9b3a4;padding:28px 0;text-align:center;font-size:14px;border-top:3px solid var(--gold)}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{text-shadow:0 0 0 transparent}50%{text-shadow:0 0 22px color-mix(in srgb,var(--gold) 75%,transparent)}}
+@keyframes drift{to{transform:translate(40px,30px) scale(1.2)}}
+@keyframes shift{50%{background-position:100% 50%}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes lit{50%{filter:drop-shadow(0 0 8px #d9a52699)}}
+@keyframes pop{from{transform:scale(0)}60%{transform:scale(1.25)}to{transform:scale(1)}}
+.hero{position:relative;overflow:hidden}.hero .w{position:relative}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.35;pointer-events:none;animation:drift 12s ease-in-out infinite alternate}
+.b1{width:220px;height:220px;background:var(--gold);top:-40px;inset-inline-start:-40px}
+.b2{width:260px;height:260px;background:var(--tealb);bottom:-80px;inset-inline-end:-60px;animation-delay:-4s}
+.b3{width:120px;height:120px;background:var(--gold);top:40%;inset-inline-end:20%;animation-duration:9s}
+.hero h1{animation:up .9s ease backwards}
+.hero h1 b{animation:glow 2.8s ease-in-out infinite}
+.hero p{animation:up .8s .5s ease backwards}
+.hero .btn{animation:up .8s .8s ease backwards}
+.brand img{animation:lit 3.5s ease-in-out infinite}
+.btn{transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px #0003}
+.card{transition:transform .25s,border-color .25s,box-shadow .25s}
+a.card:hover,a.card:focus-visible{transform:translateY(-5px);box-shadow:0 12px 24px #0002}
+.box{background-size:200% 200%;animation:shift 6s ease-in-out infinite,bob 4s ease-in-out infinite}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+.steps li:nth-child(2){transition-delay:.15s}.steps li:nth-child(3){transition-delay:.3s}
+.steps li::before{transition:transform .5s}
+.steps li.in::before{animation:pop .6s .3s backwards}
+.ic{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--tealb));color:#212020;margin-bottom:4px;transition:transform .3s}
+.ic svg{width:26px;height:26px}
+a.card:hover .ic{transform:rotate(-8deg) scale(1.12)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <a class="brand" href="#top"><img class="lg-l" src="data:image/webp;base64,UklGRvIPAABXRUJQVlA4IOYPAABwPwCdASqMAMwAPlEijkSjoiGT2248OAUEtgQ4AMltJV4+Rv4r8sfZ84H6cvC31f+qf438vfjB3tdW+ZN4x+o/8L+//lT85fQ35gf6p/sf1kv3B9QH7Y/tn7uH+v9TP9T/2vsAfzL/V//f1sPYO9AT9ufTd/cH4Sv63/v/259sr1AP//6gH//4nD/L9qn+t/sGSUgN/e/99wq8ALxRvQIAuou1L8gDgWqAH88/y/oVZ+nrH2FOlmzg4uXtoCZealScXNEAs0x+aZ2CuP2eGh6PH+N/H5pFhoQdjhUyKkdm+384KCWuWVxcj9MRrsL/R3aR+5L9BIVLOhGtg5/gvjMffKrcXwZe87+RVxr7rsodJZ/psr3Vpzy36h1qLOOHNskaJIjG2ty6kYdIrvWx4qtAXwC62OWfU6/8koL8fJX0WZkTHWddfKRVVfOBe6eJn8O0KELEYBvez0JTkM77eezJomqh/1FmXDjfy1qBbRtPnGtoZ6FypM+qitsGKad4xvTcyzf9uOEfR8CClUvmYeEjep4OVZhhE18bTLoOX4OR+OcepBUYx4kKYlAbbcydjoVmfxx1Cw48iJoGTzSP0BvrS5L3VCy92E0ZoJyzeqqAZszizQFLVkBK2H5WL0PhKMB44oLY2NLUphFCDeSTpySWTO0b0yubta1rWxx0XOv2Xmik4AAA/u8sgfDfYU65XqvAMi8sZ2R5KHkf8kyVwCUMakTxpfmQxtxKT8G8tuy2JI86y+les6lzD1xpBMnJfydqrwiw1hnNaRpgOwF7brZDRTfBumVCoRJQ3aDAQXuMI7+92zm1knPf1nBywsuRM/gX1RVKDNDlDzSRPrMzCXit3eNa1Pbeix2z8MRL9hRUJnahjzbv/thLBQ8lYX1cABUSGtz7D73ZSrVX4Pnmx7O6x/Xm9oIVIdp45FBzB15fhQXqMADyoqQtuM44aq45gJH2mAE8GSUCyCmZJBcUBPSgjG1JYfsZ0wuUucx6AGa9OzXE+MYCNyv6geJp4pHboIzZDvOs73ODRvXRcsq0y4GIL6ZFIXzKCVzgkuGEOYkLl3WtqJDjlJar9TPXCj8RqjfL9EbF2yy+9bhIGtDgdUOuu7GaZ3jBFx1b6HOn+l5uPLCH9sickH7hKndPhuFV7V8UIkKi7J3YNkORJDrl9/FFvt7ytWJuUkb9DhQYH0OkY80L/8d4PfHKEi4MpZ/19i3g7ULgmb0YGQwVn0Wj9ixlXdCBdlDOt/F9f/hO2+EQSxYg1Hzq0sa8K0I6AF9ZPEiFUWmFQcs5S149JBF3nequq6YWwmPDEiV0ob2MM0d2sboLfs0qwUUnZ/Ho2sp1IsSAAfjEtQmbm1KIbPbR0NfBsfuN4ZzYrg6CpI0iHNo2WfoWcPYtnel/IIcb9bi1xFvnsuVWEFA7y8DxNfM0efxOH4qezpJPkfrHqYh1XIyEd4gz1W8XAQG3t/Y/P6Uc7uDQ/3k5XpOnbMGGuOIT70cjfAC97hUwinlg/Dyc5P+TyP+1jLINPMbNRWAdPe3o598Gg37R/IkPZ+t8PexLCJpWlaq0xcGAtLXXIsEPCDLIGX1+w9+eQpZihK3mLSSyJKJV9WQtDisMzjJEQIx5w7LdmpsEIzN4NqooHZvNkEAzAq8gMlp4x4wsC8U74QOYuRKu5bFo3abfq5bFGZtZrbKext7GYu9Oc7mwPd0qEKbwL6HvXt1LCCZkhsq/eL4Uqzkutaj98aoNPvwW38pLMnH7qtJJzLy6K9C9ao2hcbeS+Xco+V1PMSRxJipm4pHIITMIBdHE0DioBVC5eF+kClRbsGn6+UIFtJfTRgH+4izFWxHQbWWAPtIsMXRdrJsylV83mCpSx/H0B8DHEkSx6LQr2i7dJBH5cczy8iOQQD+7+dtFeJRYBQw3Ar9hcxK1wAQ+SSZ559GEa8x2vPKEGWAYOI2f/PH3MXQOTm1v/KumvlcbbJ+VZJMbRTLWKbvY8S+yb2wUbjlJCO0II8CuGOshEirr7XlqlkL5gszUElnqbjeFnnlUMRzCcUQ7+xYNxOpFCie4uVTjPtVp8Wa+jUUbE6GGZksmXIks6WmhCFmsYhaeJlr57tr0w8uqUp+UjaySpdrkEB/2L9dBS4IPIXBEeDNOObHk5J8fVp6Ikr3rSX4dsTgev6Ca3W9aeGboOEfzFfoaNfjhm6wz85cRPvF8ODFmQc+EeC1sBM6ToS/i4Moiol7uENAeELrusB0yTqToM8Sbi0R/OZs+PhG0PmiPFLK2+6LSbDqTmIYOPqFlBPqH0H/nsk/w2fZePhFs7abdy1gSqwtuJKa0oJRh8ghQLn93IHkBOsLd4TmN5qBmrCC2bhdS1rDl4HL10LP0tRy3wRSM/kLYNN2zYwRhzxvJxfZ8xX1p/x0qc2ISV3834+e9fxNocJ8lhJX5xc5cwkwbiTMHyuOqe/MG+TpAlMP1oIc1o8TWRRplafnlvwhJWcuUPYldq9TklFG8ZHLX8UZtm1RmwL2felg9tczyZ/blRIiyc5QLyxCP1UJSAFZ3/15tlQmAJfPXqn3npuuR7zu0tPmV1IZQuyHHjxeA+7SJ407RJd16ogqekI77QBT/98m89j2l987sNrINcjpRIF0bH+G2PH6AJdOpocIu02I3GfLUkSZY0pKvpnibEd94oyYPgY33W//y4JFza+htbI5WiiLluhKrqvaBm9pr/yPxauh2uAgBlGvq/uqF/CN+PXsVyJPi5nT+WZtmzIHOyIETJoE8J6BghEFgteMvWN2c9KQtPTMAKw3gsrGE402LaMHidTruwP5abWP/hYvCxC07TUrbT5fyJH84chyLIrtIOse7bMmwV1LtUeWYszfs/3m/zEgbsuqN9waZn4w+AYdikDD9B6LEC7tQ6Ij2jUM3DpINeQBjmcqnyPIgJKgYj5YsXyueRczzIb/W+Zl7/mqBIjl9PtOnlTztO9rK8QC6Z4dF1ELi4FvRmlGcPpa3ZA7RwLzjfghUd7ry+CvjDb0uRZ4K37+59sbi/GWHG2JwAwe2AY3n8Ke9IaLjXrBG0MDy1PsS9BlMZjviE3uq6f989dHTqluwCJ4MZKbbkVaGGaHSwxLTQHQQXQ++9TU+EHNK2NWvSAKrOQRU/RwYd+1z2RgJvZF0+r7EQ0nx10XzDvyf/NVHWWoBSu4IxBA7kVNEspBYCscRGZIwe/9rSUGBzMAyCy3B7h8TG+tfizwb3hSZPJP1OzKrgjOsOxPTFBAp3EnyHGOmN0xwYYQi7fQhUrqLx6NR2pskYb38RgO8d3ehTA3s+PHCraaSLMF1bxJpO+WRYkDX+BrGOM3tqnD4KdCfUZK2ckEcVN5g/k0dUWgfMLLDovdpAK6+QVRggzkwiVt4AacPaOvNLLo85M/C8yqL/nsJIR7nrm1MnPcXmgpdr3DwhFBnCyLWZGaPXOUUliuFvqmMuSX7G3kAqSP8bKfBni0ieiN1ep65Q1C+d51qCwk06LFDL989axsYMwVf5kMCY17LSeAz8+uzvzbuaDq5XgfZQB01fOFXAPeQQoiLsVVO92M9vXNSEUi2Vo7feN4tYja7czihNtZ5A8sw0c+sls3UywCODJuwiOP/6lzLxb22kutPTludTJ85U+Tt7C/TaqkJBcjHcbl4VwnkmDgbJBjBdhd8hwHjYDDqccyD7Z2q373j0j8yNQeSFTbwpfi1Ju78sPTWKD3sZUfxhxs7Lg6Kos5U93YGj7FsYAhwLmus3yaE4Wvot51BjTBcbRzj8UPj/MvSJn0Po5c9l0CT5x9Md/L4N+UZi53jnLS9d6EbUw7T4/LR1H+1A55rLW2Y/EIP3K1WwQfFP1Vp0fwHHy6wXamrYl8EilpUdyKzbR3G8w/rkYZdyzP48viZPfXuJTJoqSzb1ozqnbG1t0ERzcRN6kLlcgAyJ2afV5iBhnWqIzztoZ2EPVWTJOTS52OIhBwu+oniBIzNoj3Ss6OFuOn4w4cDQs3BaFcS0ZyEAGlCV7JMJJC+iMXwHLhPdcyy/ffdDx7tihVKiuE9jPextGkwK9Ue2Qg+eXtTwBd8RnPSJM5CLauc7LI68vuWZzGulpH2dlLscoxp0MLA06Tm8FAFnRE7iWophZ5UeIO5QlGT79+p8QPof8z8+ReKGMzacGEGFzuvRHXLF0PknGVk6sA7qNvsdxXilw2EsAy3zL8rM1QHZ8pjyfJiYYfMuUBtMPjCtFCoGHUMBCW68R2xa4Z9ZAfGKBdiU8YtJPa3dceptbF2qQ0SE31d5VQ1qimdLo9a4gNn6EHEhvSn2mFV5cneJWXDolQMRafoSDM/fgW81E3sFNjzxDJJcnAALQYxBIDkudI4jKpzSIQWsVgZX0cbmRUkwpHJkL4txHidgLDyRQOK8WQQovrYMtA3kyWhJFvxgKC/EwLUKQp2wq9VgFhYWY9JijrXaEJ+ncX3B9hthZ0zYumT1Xv8D5n49CIiVgxSQAtV7VvZJHnRlwBSttcDDCRRbFQImCOhzpOetkXNgpLE/S9TymwO6oVoUpLt3UK6Vx8kCQdnEnPlOM9usv50e87oS9qr6+mV9uHk2jKI7kFFrY3vZK4xQaAN4wJfEg2nzxdisB37zQ40MSmzeHoIb0FVClcA6448sIRjWnv+PynjNCIC4546DwDR6d/noKklRi8FkOeBVPXSjlnNtufq7Beh1Oyn22ppLBeGt8QCPUekZUA/KbpbOYcyd+yGHzd7Rw0fQAaylLXUW6QvcbQMw56CGEFPQ5qcw0EKBQqNA+yeEZyR1hc3gEBH1o9Mzdc+3OS3NGGige9QAeEgC5kYHsCXZ/6Z0xS9eCFyKCBWFpb8gEsPvF+YWkfQaoBmhSXabeo8FdR38vzdLGyxHlDHTabJ7vErKTCI1XgbiAXZPkjRV9BmgQ24AAL1iI7V+fpX/CUNrLbTNZcnwzRKjDUfj0wyFp4yXFhAuQU1hkdVac8/2jsidrvzAt+wUfrJnlngfCNNOukq+3P7vMb8oBQxLsUxyO9UexVfkayqbfdvgEELVYNsHTuPJxZtUkW/jCMhrcNoaXDH+QS9mh6p9URpaiwH0OVMfiLH4Bp4kLD+mDNdofbVFRvrcPlqRsyRXK6T3GUrVmqPaxp2e/YgA1E7hhp6I3A5XWCnJMvgJe+8WtelQeu9oUj5FUt759OhTEZcMr2Fm4CPwfwAYP0hxbrRsj/BNawMHCVf1b2iV8h8AC2aFokbuO7OAAj/e/GXlbKbyhIt9Z+aCEkMQpwZZtl9iBSapxsl69tT/cf3MYTjf3EgWmm2SRTfbSntTAqCRsg8UmKUBnY3JtAxVi1zOZDs7l6BHGpVXZlh8Cks+FxxX28udLOiNyH+zJhnUs/De3TINgAABnmVMAjWUGIHOf7v4ITqKJVF6nOtjIRIJQ9Ti9qY3fuIsOe32Ake5AAAAA==" alt=""><img class="lg-d" src="data:image/webp;base64,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" alt="">استودیو بازی‌سازی رسافکر</a>
+ <button id="tg" type="button" aria-label="تغییر پوسته روشن و تیره">☾ / ☀</button>
+ <nav aria-label="منوی اصلی"><a href="#articles">مقالات</a><a href="#products">محصولات</a><a href="#games">بازی‌های دیجیتال</a><a href="#about">درباره ما</a><a href="#contact">تماس با ما</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><div class="w">
+ <h1>فکری که <b>روشن</b> است،<br>شنیده می‌شود و<br>اثر می‌گذارد...</h1>
+ <p>استودیو بازی‌سازی رسافکر، بازی‌های دورهمی و تجربه‌های گیمیفای‌شده می‌سازد.</p>
+ <a class="btn" href="#products">محصولات ما</a><a class="btn o" href="#games">بازی‌های دیجیتال</a>
+</div></div>
+
+<section id="articles"><div class="w">
+ <h2>مقالات</h2><p class="sub">دربارهٔ گیمیفیکیشن، طراحی بازی و یادگیری از راه بازی.</p>
+ <div class="grid">
+  <a class="card" href="#articles"><span class="tag">گیمیفیکیشن</span><h3>گیمیفیکیشن چیست و چرا کار می‌کند؟</h3><p>مقدمه‌ای ساده بر استفاده از عناصر بازی در کار و آموزش.</p></a>
+  <a class="card" href="#articles"><span class="tag">طراحی بازی</span><h3>بازی‌های دورهمی چطور طراحی می‌شوند؟</h3><p>از ایده تا جعبه: مسیر ساخت یک بازی رومیزی.</p></a>
+  <a class="card" href="#articles"><span class="tag">روانشناسی</span><h3>چرا مچ‌گیری این‌قدر جذاب است؟</h3><p>نگاهی به لذت حدس زدن، بلوف زدن و کشف دروغ.</p></a>
+ </div>
+</div></section>
+
+<section id="products" class="alt"><div class="w">
+ <h2>محصولات</h2><p class="sub">بازی‌هایی برای دورهمی خانواده و دوستان.</p>
+ <div class="prod">
+  <div class="box">چند می‌خوره؟</div>
+  <div>
+   <span class="tag">بازی دورهمی · ۴ تا ۱۲ نفر</span>
+   <h3 style="font-size:26px;margin:10px 0 4px">چند می‌خوره؟</h3>
+   <p style="color:var(--mut)">بازی اعداد و مچ‌گیری در دورهمی. شهروندها سوال را می‌دانند، جاسوس‌ها نه. عدد می‌گویید، بحث می‌کنید و جاسوس را پیدا می‌کنید.</p>
+   <a class="btn" href="#games" style="margin-inline-start:0;margin-top:14px">نسخهٔ دیجیتال را بازی کن</a>
+  </div>
+ </div>
+</div></section>
+
+<section id="games" class="games"><div class="w">
+ <h2>بازی‌های دیجیتال</h2>
+ <p class="sub">نسخهٔ آنلاین «چند می‌خوره؟» مخصوص خریداران جعبهٔ بازی است.</p>
+ <ol class="steps">
+  <li>کد سریال داخل جعبه را پیدا کن.</li>
+  <li>شمارهٔ موبایلت را وارد کن.</li>
+  <li>کد تأیید پیامکی را بزن و وارد بازی شو.</li>
+ </ol>
+ <form onsubmit="event.preventDefault();this.querySelector('.note').textContent='این فرم در نمونهٔ اولیه فعال نیست.'">
+  <input name="serial" placeholder="کد سریال" autocomplete="off" aria-label="کد سریال" dir="ltr">
+  <input name="phone" placeholder="شمارهٔ موبایل (۰۹…)" inputmode="tel" aria-label="شمارهٔ موبایل" dir="ltr">
+  <button type="submit">دریافت کد تأیید</button>
+  <span class="note" role="status">هر سریال فقط با یک شمارهٔ موبایل فعال می‌شود.</span>
+ </form>
+</div></section>
+
+<section id="about"><div class="w">
+ <h2>درباره ما</h2>
+ <p class="sub" style="max-width:640px">استودیو بازی‌سازی رسافکر باور دارد ایده‌ها وقتی بازی می‌شوند، رساتر به دل می‌نشینند. ما بازی‌های رومیزی و دیجیتال می‌سازیم و دربارهٔ گیمیفیکیشن می‌نویسیم. (متن نهایی را تیم رسافکر جایگزین می‌کند.)</p>
+</div></section>
+
+<section id="contact" class="alt"><div class="w">
+ <h2>تماس با ما</h2>
+ <p class="admin">ارتباط با ما: <b>@RasaFekr_Admin</b></p>
+ <div class="grid" style="margin-top:20px">
+  <a class="card" href="https://instagram.com/rasafekr_studio" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span><h3>اینستاگرام</h3><p dir="ltr" style="text-align:right">instagram.com/rasafekr_studio</p></a>
+  <a class="card" href="https://t.me/rasafekr_studio" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5 2.6 10.8c-1.1.4-1.1 1.2-.2 1.5l4.8 1.5 1.9 5.7c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.8-.8L22.9 5c.3-1.3-.5-1.9-1.4-1.5z" fill="currentColor"/></svg></span><h3>تلگرام</h3><p dir="ltr" style="text-align:right">t.me/rasafekr_studio</p></a>
+  <a class="card" href="https://eitaa.com/rasafekr_studio" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-8l-5 4v-4H4a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><circle cx="8" cy="10.5" r=".9" fill="currentColor"/><circle cx="12" cy="10.5" r=".9" fill="currentColor"/><circle cx="16" cy="10.5" r=".9" fill="currentColor"/></svg></span><h3>ایتا</h3><p dir="ltr" style="text-align:right">eitaa.com/rasafekr_studio</p></a>
+  <a class="card" href="https://ble.ir/rasafekr_studio" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 4.5 16.8L21 21l-1.3-4.3A9 9 0 0 0 12 3z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span><h3>بله</h3><p dir="ltr" style="text-align:right">ble.ir/rasafekr_studio</p></a>
+ </div>
+</div></section>
+</main>
+<footer><div class="w">© استودیو بازی‌سازی رسافکر · همهٔ حقوق محفوظ است</div></footer>
+<script>
+(function(){var r=document.documentElement;
+try{var s=localStorage.getItem('rf-theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+document.getElementById('tg').addEventListener('click',function(){
+ var cur=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ var n=cur==='dark'?'light':'dark';r.setAttribute('data-theme',n);
+ try{localStorage.setItem('rf-theme',n)}catch(e){}});
+r.classList.add('js');
+var els=document.querySelectorAll('h2,.sub,.steps li,.prod>div,.grid,form,.admin');
+els.forEach(function(e){e.classList.add('rv')});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
